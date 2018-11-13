@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fromGalleryButton.setOnClickListener(this);
         imageView = (ImageView)findViewById(R.id.imagesViewFromGallery);
     }
-
+//
     @Override
     public void onClick(View v) {
         Intent intent = new Intent();
