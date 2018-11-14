@@ -16,14 +16,15 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    int LOAD_IMAGE =101;
-    int IMAGE_CAPTURE = 102;
-    Button fromGalleryButton, imageCaptureButton;
+    int LOAD_IMAGE =101;//이미지
+    int IMAGE_CAPTURE = 102;//카메라
+    Button fromGalleryButton, imageCaptureButton;//이미지버튼, 카메라버튼
     ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         fromGalleryButton = (Button)findViewById(R.id.fromGalleryButton);
         fromGalleryButton.setOnClickListener(this);
         imageCaptureButton = (Button)findViewById(R.id.imageCaptureButton);
@@ -33,13 +34,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent();
+//        암묵적intent에는 Action, data, filter가 필요
+        Intent intent = new Intent();//intend
 
         switch (v.getId()){
             case R.id.fromGalleryButton:
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                startActivityForResult(intent,LOAD_IMAGE);
+                intent.setAction(Intent.ACTION_GET_CONTENT);//action-> setAction(intent, ACTION_GET_CONTENT)
+                intent.setType("image/*");//data-->setType("")
+                startActivityForResult(intent,LOAD_IMAGE);//filter->startActivityForResult(intent,LOAT_IMAGE)
                 break;
 
             case R.id.imageCaptureButton:
